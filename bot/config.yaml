@@ -1,0 +1,42 @@
+# WARNING: DO NOT store actual API keys here in production!
+# Use environment variables instead
+binance:
+  api_key: ${BINANCE_API_KEY}
+  api_secret: ${BINANCE_API_SECRET}
+  testnet: true  # Set to false for live trading
+  futures: true
+  margin_type: "CROSS"
+  leverage: 120
+
+trading:
+  symbol: "BTCUSDT"
+  timeframe: "1m"
+  trade_amount: 0.001  # Base trade size in BTC
+  max_position_size: 0.003  # Maximum position size in BTC
+  profit_target_pct: 0.15  # 0.15% profit target
+  stop_loss_pct: 0.08  # 0.08% stop loss
+  trailing_stop: true
+  trailing_stop_activation: 0.1  # Activate trailing stop after 0.1% profit
+  trailing_stop_distance: 0.05  # 0.05% trailing stop distance
+
+risk_management:
+  max_daily_trades: 50
+  max_daily_loss_pct: 2.0  # Maximum daily loss as percentage of account
+  max_position_risk_pct: 1.0  # Maximum risk per position
+  min_volume_24h: 100000000  # Minimum 24h volume in USDT
+  min_distance_to_liquidation: 0.5  # Minimum distance to liquidation price in %
+
+indicators:
+  rsi:
+    period: 14
+    overbought: 70
+    oversold: 30
+  macd:
+    fast_period: 12
+    slow_period: 26
+    signal_period: 9
+  ema:
+    short_period: 9
+    long_period: 21
+
+mode: "paper"  # "paper" or "live"
